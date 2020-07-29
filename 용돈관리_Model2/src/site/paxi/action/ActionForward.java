@@ -1,6 +1,6 @@
 package site.paxi.action;
 
-public class ActionFoward {
+public class ActionForward {
 	private boolean isRedirect=false;
 	
 	private String path=null;

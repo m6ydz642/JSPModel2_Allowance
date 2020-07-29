@@ -28,7 +28,8 @@ public class MoneyListController extends HttpServlet{
 	
 	protected void requestPro(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("requestpro 호출");
-		SearchMoney(req, resp);
+		SearchMoney(req, resp); // 아 이거 매개변수 때문에 request안됐던거 ㅡ.ㅡ ㅋㅋㅋㅋㅋㅋㅋ
+								// 난 스트립 틀릿기호처럼 request라는 메서드가 따로 있는줄
 	}
 	
 	private void SearchMoney(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
