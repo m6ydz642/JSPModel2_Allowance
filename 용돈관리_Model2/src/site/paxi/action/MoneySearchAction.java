@@ -16,12 +16,16 @@ public class MoneySearchAction implements Action {
 		System.out.println("MoneySearch Action excute()함수 호출");
 		MoneyDAO mdao = new MoneyDAO();
 		MoneyBean bean = new MoneyBean();
-		int count = mdao.getMoneyCount();
+		
+		String 사용내역 = request.getParameter("moneysearch"); // name값 가져오기
+		int count = mdao.MoneySearchCount(사용내역);
+		
 		
 		System.out.println("moneySearch action money count " + count);
 		List<MoneyBean> moneylist = null;
 		
-		String 사용내역 = request.getParameter("moneysearch"); // name값 가져오기
+		
+		
 		System.out.println("전달받은 name값 " + 사용내역);
 		moneylist = mdao.SearchMoney(사용내역);
 		

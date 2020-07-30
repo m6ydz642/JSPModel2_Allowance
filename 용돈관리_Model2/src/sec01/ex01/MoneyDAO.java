@@ -242,7 +242,33 @@ public List<MoneyBean> SearchMoney(String 사용내역){
 	}
 	
 	
+public int MoneySearchCount(String 사용내역) { // 갯수 세기 
+	int count = 0;
+	try {
+		
+		con = getConnection();
+		sql = "select count(*) from 사용금액 where 사용내역 like ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1,"%" + 사용내역 + "%");
+		rs = pstmt.executeQuery(); // ㅅㅂ 이거없어서 계속 삽질함 ㅡ.ㅡ 
+		
+		if (rs.next()) {
+		count = rs.getInt(1);
+		System.out.println("머니 카운트 검색 완료 카운트 수" + count);
+		}else {
+			System.out.println("카운트 할 항목이 없음" + count);
+		}
+		
+	} catch (Exception e) {
+		System.out.println("getmoneysearchcount 예외 발생" + e);
+		e.printStackTrace();
+	}finally {
+		resourceClose();	
+	}
 	
+	
+	return count;
+}
 	
 
 	public int getMoneyCount() { // 갯수 세기 
