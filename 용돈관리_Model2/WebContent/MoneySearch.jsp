@@ -14,15 +14,18 @@
 <%
 		//한글 처리
 		request.setCharacterEncoding("UTF-8");
-
+// ?moneysearch=${usedetails}
 %>		
- 	<tr>총 항목수 : </tr>
- 	<c:out value="${count}"/>
 
  	  <form action="MoneySearch.me">
-		<input><input value="검색하기" type="submit">  <br> <br> 
+		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
 	</form>
 	
+ 	
+ 	
+ 	<tr>총 항목수 : </tr>
+ 	<c:out value="${count}"/>
+ 	
 		<c:if test="${count > 0}">
 	
 	

@@ -20,7 +20,10 @@ public class MoneySearchAction implements Action {
 		
 		System.out.println("moneySearch action money count " + count);
 		List<MoneyBean> moneylist = null;
-		moneylist = mdao.Listmoney();
+		
+		String 사용내역 = request.getParameter("moneysearch"); // name값 가져오기
+		System.out.println("전달받은 name값 " + 사용내역);
+		moneylist = mdao.SearchMoney(사용내역);
 		
 
 		
@@ -30,9 +33,9 @@ public class MoneySearchAction implements Action {
 		
 		forward = new ActionForward(); // 객체생성
 		forward.setRedirect(false);
-		forward.setPath("MoneyList.jsp");
+		forward.setPath("MoneySearch.jsp");
 		
-		System.out.println("머니 리스트 페이지 내용 미리보기");
+		System.out.println("머니 서치 페이지 내용 미리보기");
 		
 		/*********************************************/
 

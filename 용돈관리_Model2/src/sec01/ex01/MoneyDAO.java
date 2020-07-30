@@ -179,6 +179,71 @@ public class MoneyDAO {
 		return list; //검색한 회원정보들(MemberBean객체들)을 저장하고 있는 ArrayList를 
 				     //member.jsp로 반환
 	}
+	
+	
+public List<MoneyBean> SearchMoney(String 사용내역){
+		
+		//DB의 모든 회원정보들을 조회(검색)하여 얻어오는데..
+		//한사람의 회원정보씩 MemberBean객체에 저장후.....
+		//MemberBean객체들을? ArrayList배열에 추가하여 저장 하기 위해 ArryList배열 생성
+		//List list = new ArrayList();
+		 List <MoneyBean> list = new ArrayList<MoneyBean>();
+		
+		
+		try {
+
+
+			System.out.println("드라이버 로드 성공!");
+			//1.DB연결 : DataSource(커넥션풀)로부터 Connection(접속객체)얻기 
+		// con = dataFactory.getConnection();
+			con = getConnection();
+
+			//2.SQL문 (SELECT)
+			//-> 회원정보를 최근 가입일순으로 내림차순 정렬 하여 조회(검색)할 SQL문 만들기
+			// String query = "select * from 사용금액 order by moneyid desc, 날짜";
+			String query = "select * from 사용금액  where 사용내역 like ?" ;
+			
+			//3.select구문을 실행할 OraclePreparedStatmentWrapper실행객체 얻기
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,"%" + 사용내역 + "%");
+			
+			rs = pstmt.executeQuery();
+			
+	
+			while (rs.next()) {
+				
+				
+				SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
+				
+				String usedetails = rs.getString("사용내역");
+				int amount = rs.getInt("사용금액");
+				String usetype = rs.getString("사용구분");
+				// Date joinDate = rs.getDate("joinDate");
+				Date joinDate = rs.getDate("날짜");
+				int moneyid = rs.getInt("moneyid");
+
+				
+				
+				//검색한 한사람의 회원 정보씩 -> MemberBean객체를 생성하여 각변수에 저장
+				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid);
+
+				//ArrayList배열에 검색한 회원 한명의 정보를 담고 있는 MemberBean객체를 추가
+				list.add(vo);
+			}
+			System.out.println("Money Search select 구문 정상실행");
+					
+		} catch (Exception e) {
+			System.out.println("SearchMoney 메소드 내부에서 SQL실행 오류 : " + e);
+		} finally {
+			resourceClose();
+		}
+		return list; //검색한 회원정보들(MemberBean객체들)을 저장하고 있는 ArrayList를 
+				     //member.jsp로 반환
+	}
+	
+	
+	
+	
 
 	public int getMoneyCount() { // 갯수 세기 
 		int count = 0;

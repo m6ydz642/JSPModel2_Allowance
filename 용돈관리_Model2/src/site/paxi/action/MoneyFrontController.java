@@ -53,8 +53,6 @@ public class MoneyFrontController extends HttpServlet {
 				System.out.println("서치 리스트.me 오류 발생" + e);
 				e.printStackTrace();
 			}
-			
-			
 	
 		} // moneysearch.me
 		
