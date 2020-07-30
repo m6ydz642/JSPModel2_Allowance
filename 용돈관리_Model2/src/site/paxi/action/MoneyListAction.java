@@ -18,11 +18,15 @@ public class MoneyListAction implements Action {
 		MoneyBean bean = new MoneyBean();
 		int count = mdao.getMoneyCount();
 		
+		System.out.println("moneylist action money couny " + count);
 		List<MoneyBean> moneylist = null;
 		moneylist = mdao.Listmoney();
 		
+
+		
 		
 		request.setAttribute("count" ,count); // 나중에 jsp페이지에서 Scope해서 쓸용도로 저장해 둠
+		request.setAttribute("list" ,moneylist); 
 		
 		forward = new ActionForward(); // 객체생성
 		forward.setRedirect(false);

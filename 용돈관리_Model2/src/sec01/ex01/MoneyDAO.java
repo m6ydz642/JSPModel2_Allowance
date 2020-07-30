@@ -128,7 +128,7 @@ public class MoneyDAO {
 
 			//2.SQL문 (SELECT)
 			//-> 회원정보를 최근 가입일순으로 내림차순 정렬 하여 조회(검색)할 SQL문 만들기
-			String query = "select * from 사용금액 order by 날짜 desc";
+			String query = "select * from 사용금액 order by moneyid desc, 날짜";
 			
 			//3.select구문을 실행할 OraclePreparedStatmentWrapper실행객체 얻기
 			pstmt = con.prepareStatement(query);
@@ -159,12 +159,12 @@ public class MoneyDAO {
 				String usetype = rs.getString("사용구분");
 				// Date joinDate = rs.getDate("joinDate");
 				Date joinDate = rs.getDate("날짜");
-
+				int moneyid = rs.getInt("moneyid");
 
 				
 				
 				//검색한 한사람의 회원 정보씩 -> MemberBean객체를 생성하여 각변수에 저장
-				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate);
+				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid);
 
 				//ArrayList배열에 검색한 회원 한명의 정보를 담고 있는 MemberBean객체를 추가
 				list.add(vo);
@@ -183,9 +183,12 @@ public class MoneyDAO {
 	public int getMoneyCount() { // 갯수 세기 
 		int count = 0;
 		try {
+			
 			con = getConnection();
 			sql = "select count(*) from 사용금액";
 			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery(); // ㅅㅂ 이거없어서 계속 삽질함 ㅡ.ㅡ 
+			
 			if (rs.next()) {
 			count = rs.getInt(1);
 			System.out.println("머니 카운트 완료 카운트 수" + count);
@@ -194,7 +197,7 @@ public class MoneyDAO {
 			}
 			
 		} catch (Exception e) {
-			System.out.println("getmoneycount 예외 발생");
+			System.out.println("getmoneycount 예외 발생" + e);
 			e.printStackTrace();
 		}finally {
 			resourceClose();	

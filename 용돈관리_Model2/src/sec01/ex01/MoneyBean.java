@@ -20,18 +20,32 @@ public class MoneyBean {
    private int amount; // 사용금액
    private String usetype; // 사용구분
    private Date joinDate; // 입력시 날짜 되게
-		
-   //아무일도 하지 않는 생성자 
+private int moneyid;
+
+   public int getMoneyid() {
+	return moneyid;
+}
+
+
+
+public void setMoneyid(int moneyid) {
+	this.moneyid = moneyid;
+}
+
+
+
+//아무일도 하지 않는 생성자 
    public MoneyBean() {}
 
 	
 
-public MoneyBean(String usedetails, int amount, String usetype, Date joinDate) {
+public MoneyBean(String usedetails, int amount, String usetype, Date joinDate, int moneyid) {
 	super();
 	this.usedetails = usedetails;
 	this.amount = amount;
 	this.usetype = usetype;
 	this.joinDate = joinDate;
+	this.moneyid = moneyid;
 }
 
 
