@@ -21,7 +21,7 @@
 		<jsp:setProperty property="*" name="m" /><!-- 모든 setter호출 "*" 로 -->
 		<jsp:useBean id="MoneyDAO" class="sec01.ex01.MoneyDAO"/>	
 <%
-	// MoneyDAO.addMember(m);
+	MoneyDAO.addMember(m);
 		
 		//3.DB작업(SELECT)
 		List<MoneyBean> MoneyList = MoneyDAO.Listmoney();//DB에 저장된 모든 회원정보 조회 요청

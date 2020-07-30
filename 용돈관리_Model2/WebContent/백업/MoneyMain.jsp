@@ -14,7 +14,7 @@
 </head>
 <body>
 		
-		<c:set var="center" value="${param.center}"/>
+		<c:set var="center" value="param.center"/>
 		 
 		<form action="moneystatus.jsp" method="post">
 			<h1 style="text-align: center;">돈관리</h1>

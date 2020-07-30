@@ -179,30 +179,6 @@ public class MoneyDAO {
 		return list; //검색한 회원정보들(MemberBean객체들)을 저장하고 있는 ArrayList를 
 				     //member.jsp로 반환
 	}
-
-	public int getMoneyCount() { // 갯수 세기 
-		int count = 0;
-		try {
-			con = getConnection();
-			sql = "select count(*) from 사용금액";
-			pstmt = con.prepareStatement(sql);
-			if (rs.next()) {
-			count = rs.getInt(1);
-			System.out.println("머니 카운트 완료 카운트 수" + count);
-			}else {
-				System.out.println("카운트 할 항목이 없음" + count);
-			}
-			
-		} catch (Exception e) {
-			System.out.println("getmoneycount 예외 발생");
-			e.printStackTrace();
-		}finally {
-			resourceClose();	
-		}
-		
-		
-		return count;
-	}
 	
 }//DAO클래스 끝
 

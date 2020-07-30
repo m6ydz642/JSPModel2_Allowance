@@ -26,15 +26,23 @@ public class MoneyFrontController extends HttpServlet {
 		
 		System.out.println(command);
 		
-		ActionForward forward = null;
+		ActionForward forward = null; // 전역으로 쓰기위해서 여기서 선언후 일단 null로 초기화
 		
 		Action action = null;
 		
 		if(command.equals("/MoneyList.me")) {
 			System.out.println("moneylist클릭됨 ");
-			forward = new ActionForward(); // 객체생성
-			forward.setRedirect(false);
-			forward.setPath("MoneyList.jsp");
+			action = new MoneyListAction();
+			
+			try {
+				forward = action.excute(req, resp);
+			} catch (Exception e) {
+				System.out.println("리스트.me 오류 발생" + e);
+				e.printStackTrace();
+			}
+			
+			
+	
 		}
 		
 		if (forward != null) { 

@@ -15,6 +15,13 @@ import sec01.ex01.MoneyDAO;
 @WebServlet("/MoneyListController.do")
 public class MoneyListController extends HttpServlet{
 
+	
+	/****************************************************************/
+	
+	// 이제 이 컨트롤러 안씀 
+	
+	/****************************************************************/
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		requestPro(req, resp);
