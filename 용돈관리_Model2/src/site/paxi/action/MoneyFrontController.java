@@ -2,6 +2,7 @@ package site.paxi.action;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,23 @@ public class MoneyFrontController extends HttpServlet {
 		
 		if(command.equals("/MoneyList.me")) {
 			System.out.println("moneylist클릭됨 ");
+			forward = new ActionForward(); // 객체생성
+			forward.setRedirect(false);
+			forward.setPath("MoneyList.jsp");
+		}
+		
+		if (forward != null) { 
+			if (forward.isRedirect()) { 
+				resp.sendRedirect(forward.getPath());
+				System.out.println("forward가 null임" + forward.isRedirect());
+				System.out.println("forward값 " + forward);
+			}else {
+				RequestDispatcher dispatcher = req.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(req, resp);
+				System.out.println("foward가 null이아니라서 디스패쳐 전달" + forward.isRedirect());
+				System.out.println("forward값 " + forward);
+				// Redirect가 false라면
+			}
 		}
 		
 	}

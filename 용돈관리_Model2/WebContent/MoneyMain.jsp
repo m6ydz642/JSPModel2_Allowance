@@ -47,7 +47,7 @@
 		</form>
 		
 		<form action="MoneyList.me" method="post" align="center">
-		<input align="center" type="submit" value="데이터조회">
+			<input align="center" type="submit" value="데이터조회">
 		</form>
 </body>
 </html>
