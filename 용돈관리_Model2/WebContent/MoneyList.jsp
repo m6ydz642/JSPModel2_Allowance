@@ -30,7 +30,7 @@
 %>     --%>
 
 
- 	  <form action="test.jsp">
+ 	  <form action="MoneySearch.me">
 		<input><input value="검색하기" type="submit">  <br> <br> 
 	</form>
 	
