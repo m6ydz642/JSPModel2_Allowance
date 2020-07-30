@@ -201,7 +201,7 @@ public List<MoneyBean> SearchMoney(String 사용내역){
 			//2.SQL문 (SELECT)
 			//-> 회원정보를 최근 가입일순으로 내림차순 정렬 하여 조회(검색)할 SQL문 만들기
 			// String query = "select * from 사용금액 order by moneyid desc, 날짜";
-			String query = "select * from 사용금액  where 사용내역 like ?" ;
+			String query = "select * from 사용금액  where 사용내역 like ? order by moneyid desc" ;
 			
 			//3.select구문을 실행할 OraclePreparedStatmentWrapper실행객체 얻기
 			pstmt = con.prepareStatement(query);

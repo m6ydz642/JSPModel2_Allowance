@@ -64,7 +64,7 @@
 
 </c:if>
 
-		<c:if test="${count <= 0 } ">
+		<c:if test="${count == 0}">
 			<tr>
 				<td colspan="5">
 					<b><span style="font-size:9pt">등록된 자료가 없습니다.</span></b>
