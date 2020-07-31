@@ -30,6 +30,7 @@ public class MoneyInsertAction implements Action {
 
 		request.setAttribute("list", moneylist);
 		request.setAttribute("count" ,count);
+		request.setCharacterEncoding("UTF-8");
 		
 		String usedetails = request.getParameter("usedetails");
 		int amount = Integer.parseInt(request.getParameter("amount"));

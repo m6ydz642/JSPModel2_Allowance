@@ -17,19 +17,22 @@
 // ?moneysearch=${usedetails}
 %>		
 
- 	  <form action="MoneySearch.me">
-		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
-	</form>
-	
  	
+ 	
+ 	<!-- 조만간 메인에서 한꺼번에 호출하는걸로 변경 -->
  	
  	<tr>총 항목수 : </tr>
  	<c:out value="${count}"/>
  	
 		<c:if test="${count > 0}">
 	
-	
+	<jsp:include page="header.jsp" />
 
+  <form action="MoneySearch.me">
+		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
+	</form>
+	
+	
 	<table align="center" width="100%">
 		<tr align="center" bgcolor="#99ccff">
 			<td width="7%">순서</td>

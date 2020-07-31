@@ -5,10 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<table width="1000" height="5">
+		<tr>
+			<td align="right" colspan="5">
+				<a href="MoneyMain.jsp">메인으로 가기 </a>
+			
+			</td>
+		</tr>
+	</table>
+	
 </head>
 <body>
-	DB추가 완료! 
-	2초후 사이트 이동
-	<meta http-equiv="refresh" content="2;url=MoneyList.me">
+
 </body>
 </html>

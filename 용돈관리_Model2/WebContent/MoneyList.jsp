@@ -19,8 +19,10 @@
  	<tr>총 항목수 : </tr>
  	<c:out value="${count}"/>
 
+	<jsp:include page="header.jsp" />
+	
  	  <form action="MoneySearch.me">
-		<input><input value="검색하기" type="submit">  <br> <br> 
+		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
 	</form>
 	
 		<c:if test="${count > 0}">
