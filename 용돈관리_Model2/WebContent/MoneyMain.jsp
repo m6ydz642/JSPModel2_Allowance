@@ -9,14 +9,22 @@
 <head>
 
 <title>돈 관리</title>
-		
+
+		<table width="1000" height="5">
+		<tr>
+			<td align="right" colspan="5">
+				<a>메인페이지 이동시킬 부분 </a>
+			
+			</td>
+		</tr>
+	</table>
 
 </head>
 <body>
 		
 		<c:set var="center" value="${param.center}"/>
 		 
-		<form action="moneystatus.jsp" method="post">
+		<form action="MoneyInsert.me" method="post">
 			<h1 style="text-align: center;">돈관리</h1>
 			<table align="center">
 				<tr>

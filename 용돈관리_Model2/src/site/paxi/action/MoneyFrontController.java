@@ -55,6 +55,19 @@ public class MoneyFrontController extends HttpServlet {
 			}
 	
 		} // moneysearch.me
+		else if(command.equals("/MoneyInsert.me")) {
+			System.out.println("MoneyInsert.me 클릭됨 (프론트 컨트롤러) ");
+			action = new MoneyInsertAction();
+			
+			try {
+				forward = action.excute(req, resp);
+			} catch (Exception e) {
+				System.out.println("insert 리스트.me 오류 발생" + e);
+				e.printStackTrace();
+			}
+	
+		} // moneyinsert.me
+		
 		
 		if (forward != null) { 
 			if (forward.isRedirect()) { 

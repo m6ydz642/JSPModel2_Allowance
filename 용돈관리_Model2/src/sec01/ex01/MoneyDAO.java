@@ -69,7 +69,7 @@ public class MoneyDAO {
 	
 	//DB에 새 정보를 추가시킬 메소드
 		//MemberBean객체에 저장된 입력한 회원정보가 매개변수에 전달되어옴
-	public void addMember(MoneyBean MoneyBean){
+	public void insertmoney(MoneyBean MoneyBean){
 		try {
 			//1.DB연결 : DataSource(커넥션풀)로부터 Connection(접속객체)얻기 
 		//	con = dataFactory.getConnection();
@@ -95,12 +95,15 @@ public class MoneyDAO {
 			pstmt.setLong(2,amount);
 			pstmt.setString(3,usetype);
 			
+			System.out.println("insert 넘어온 값 usedetails : " + usedetails);
+			System.out.println("insert 넘어온 값 amount : " + amount);
+			System.out.println("insert 넘어온 값 usetype : " + usetype);
 			
 			//5.OraclePreparedStatementWrapper실행객체를 이용하여 INSERT전체 문자을 DB에 전송하여 실행
 			pstmt.executeUpdate();//insert
 				
 		} catch (Exception e) {
-			System.out.println("addMember메소드 내부에서 SQL실행 오류 : " + e);
+			System.out.println("insertmoney 메소드 내부에서 SQL실행 오류 : " + e);
 		} finally {			
 			resourceClose();	
 		}//finally
