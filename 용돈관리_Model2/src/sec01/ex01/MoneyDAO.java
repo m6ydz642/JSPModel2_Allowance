@@ -302,7 +302,7 @@ public int MoneySearchCount(String 사용내역) { // 갯수 세기
 	}
 	
 	
-	public int getMoneySum() { // 갯수 세기 
+	public int getMoneySum() { // 합계 세기 
 		int count = 0;
 		try {
 			
@@ -320,6 +320,34 @@ public int MoneySearchCount(String 사용내역) { // 갯수 세기
 			
 		} catch (Exception e) {
 			System.out.println("getMoneySum 예외 발생" + e);
+			e.printStackTrace();
+		}finally {
+			resourceClose();	
+		}
+		
+		
+		return count;
+	}
+	
+	public int getMoneySum(String 사용내역) { // 사용내역에 대해 합계 세기 
+		int count = 0;
+		try {
+			
+			con = getConnection();
+			sql = "select sum(사용금액) from 사용금액 where 사용내역 like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,"%" + 사용내역 + "%");
+			rs = pstmt.executeQuery(); // ㅅㅂ 이거없어서 계속 삽질함 ㅡ.ㅡ 
+			
+			if (rs.next()) {
+			count = rs.getInt(1);
+			System.out.println("검색 머니 카운트 합계 수" + count);
+			}else {
+				System.out.println("합계 할 항목이 없음" + count);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getMoneySum(사용내역) 예외 발생" + e);
 			e.printStackTrace();
 		}finally {
 			resourceClose();	

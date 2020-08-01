@@ -19,7 +19,7 @@ public class MoneySearchAction implements Action {
 		
 		String 사용내역 = request.getParameter("moneysearch"); // name값 가져오기
 		int count = mdao.MoneySearchCount(사용내역);
-		int sum = mdao.getMoneySum(); // 전체 리스트 조회시 합계 수
+		int sum = mdao.getMoneySum(사용내역); // 전체 리스트 조회시 합계 수
 		
 		System.out.println("moneySearch action money count " + count);
 		List<MoneyBean> moneylist = null;
