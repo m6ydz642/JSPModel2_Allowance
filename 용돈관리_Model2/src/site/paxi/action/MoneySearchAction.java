@@ -19,7 +19,7 @@ public class MoneySearchAction implements Action {
 		
 		String 사용내역 = request.getParameter("moneysearch"); // name값 가져오기
 		int count = mdao.MoneySearchCount(사용내역);
-		
+		int sum = mdao.getMoneySum(); // 전체 리스트 조회시 합계 수
 		
 		System.out.println("moneySearch action money count " + count);
 		List<MoneyBean> moneylist = null;
@@ -34,6 +34,8 @@ public class MoneySearchAction implements Action {
 		
 		request.setAttribute("count" ,count); // 나중에 jsp페이지에서 Scope해서 쓸용도로 저장해 둠
 		request.setAttribute("list" ,moneylist); 
+		request.setAttribute("sum" ,sum); // 합계 전송
+		request.setAttribute("moneysearch" ,사용내역);
 		
 		forward = new ActionForward(); // 객체생성
 		forward.setRedirect(false);

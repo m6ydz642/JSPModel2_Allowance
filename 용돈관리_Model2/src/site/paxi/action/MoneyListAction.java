@@ -16,7 +16,8 @@ public class MoneyListAction implements Action {
 		System.out.println("MoneyListAction excute()함수 호출");
 		MoneyDAO mdao = new MoneyDAO();
 		MoneyBean bean = new MoneyBean();
-		int count = mdao.getMoneyCount();
+		int count = mdao.getMoneyCount(); // 전체 리스트 조회시 카운트 수
+		int sum = mdao.getMoneySum(); // 전체 리스트 조회시 합계 수
 		
 		System.out.println("moneylist action money couny " + count);
 		List<MoneyBean> moneylist = null;
@@ -27,6 +28,7 @@ public class MoneyListAction implements Action {
 		
 		request.setAttribute("count" ,count); // 나중에 jsp페이지에서 Scope해서 쓸용도로 저장해 둠
 		request.setAttribute("list" ,moneylist); 
+		request.setAttribute("sum" ,sum);
 		
 		forward = new ActionForward(); // 객체생성
 		forward.setRedirect(false);

@@ -32,6 +32,9 @@
 		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
 	</form>
 	
+	<c:out value="${moneysearch} 에 대한 "/>	<tr> 검색결과 총 합계 금액</tr>
+	<font color="orange"> <c:out value="${sum}"/></font>원
+	
 	
 	<table align="center" width="100%">
 		<tr align="center" bgcolor="#99ccff">

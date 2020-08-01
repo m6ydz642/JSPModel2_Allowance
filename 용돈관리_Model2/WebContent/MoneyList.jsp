@@ -18,12 +18,17 @@
 %>		
  	<tr>총 항목수 : </tr>
  	<c:out value="${count}"/>
+ 	
+ 	
 
 	<jsp:include page="header.jsp" />
 	
  	  <form action="MoneySearch.me">
 		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
 	</form>
+	
+	<tr> 총 합계 금액</tr>
+	<font color="orange"> <c:out value="${sum}"/></font>원
 	
 		<c:if test="${count > 0}">
 	

@@ -27,13 +27,13 @@ public class MoneyDAO {
 //public static final String DBID = "root";
 //public static final String DBPW = "1234";
 	
-	
+	/**********************************************************************/	
 	// 전역변수로 선언
 		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
-
+		/**********************************************************************/
 		public void resourceClose() {
 			try {
 				if (pstmt != null)
@@ -60,13 +60,13 @@ public class MoneyDAO {
 
 		}
 		
-		
+		/**********************************************************************/
 	//커넥션풀(DataSource)객체를 얻는 생성자
 	public MoneyDAO() {
 	
 		
 	}//DAO생성자 끝
-	
+	/**********************************************************************/	
 	//DB에 새 정보를 추가시킬 메소드
 		//MemberBean객체에 저장된 입력한 회원정보가 매개변수에 전달되어옴
 	public void insertmoney(MoneyBean MoneyBean){
@@ -110,7 +110,7 @@ public class MoneyDAO {
 		
 	}//addMember메소드 끝
 	
-	
+	/**********************************************************************/
 
 	public List<MoneyBean> Listmoney(){
 		
@@ -183,7 +183,7 @@ public class MoneyDAO {
 				     //member.jsp로 반환
 	}
 	
-	
+/**********************************************************************/
 public List<MoneyBean> SearchMoney(String 사용내역){
 		
 		//DB의 모든 회원정보들을 조회(검색)하여 얻어오는데..
@@ -244,7 +244,7 @@ public List<MoneyBean> SearchMoney(String 사용내역){
 				     //member.jsp로 반환
 	}
 	
-	
+/**********************************************************************/
 public int MoneySearchCount(String 사용내역) { // 갯수 세기 
 	int count = 0;
 	try {
@@ -273,7 +273,7 @@ public int MoneySearchCount(String 사용내역) { // 갯수 세기
 	return count;
 }
 	
-
+/**********************************************************************/
 	public int getMoneyCount() { // 갯수 세기 
 		int count = 0;
 		try {
@@ -292,6 +292,34 @@ public int MoneySearchCount(String 사용내역) { // 갯수 세기
 			
 		} catch (Exception e) {
 			System.out.println("getmoneycount 예외 발생" + e);
+			e.printStackTrace();
+		}finally {
+			resourceClose();	
+		}
+		
+		
+		return count;
+	}
+	
+	
+	public int getMoneySum() { // 갯수 세기 
+		int count = 0;
+		try {
+			
+			con = getConnection();
+			sql = "select sum(사용금액) from 사용금액";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery(); // ㅅㅂ 이거없어서 계속 삽질함 ㅡ.ㅡ 
+			
+			if (rs.next()) {
+			count = rs.getInt(1);
+			System.out.println("머니 카운트 합계 수" + count);
+			}else {
+				System.out.println("합계 할 항목이 없음" + count);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getMoneySum 예외 발생" + e);
 			e.printStackTrace();
 		}finally {
 			resourceClose();	
