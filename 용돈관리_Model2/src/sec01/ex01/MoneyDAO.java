@@ -163,11 +163,11 @@ public class MoneyDAO {
 				// Date joinDate = rs.getDate("joinDate");
 				Date joinDate = rs.getDate("날짜");
 				int moneyid = rs.getInt("moneyid");
-
+				String 기타메모 = rs.getString("기타메모");
 				
 				
 				//검색한 한사람의 회원 정보씩 -> MemberBean객체를 생성하여 각변수에 저장
-				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid);
+				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid,기타메모);
 
 				//ArrayList배열에 검색한 회원 한명의 정보를 담고 있는 MemberBean객체를 추가
 				list.add(vo);
@@ -224,11 +224,11 @@ public List<MoneyBean> SearchMoney(String 사용내역){
 				// Date joinDate = rs.getDate("joinDate");
 				Date joinDate = rs.getDate("날짜");
 				int moneyid = rs.getInt("moneyid");
-
+				String 기타메모 = rs.getString("기타메모");
 				
 				
 				//검색한 한사람의 회원 정보씩 -> MemberBean객체를 생성하여 각변수에 저장
-				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid);
+				MoneyBean vo = new MoneyBean(usedetails, amount, usetype, joinDate, moneyid,기타메모);
 
 				//ArrayList배열에 검색한 회원 한명의 정보를 담고 있는 MemberBean객체를 추가
 				list.add(vo);

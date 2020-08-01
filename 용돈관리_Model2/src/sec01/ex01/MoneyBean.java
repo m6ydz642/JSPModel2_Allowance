@@ -22,7 +22,23 @@ public class MoneyBean {
    private Date joinDate; // 입력시 날짜 되게
 private int moneyid;
 
-   public int getMoneyid() {
+private String memo;
+
+
+
+public String getMemo() {
+	return memo;
+}
+
+
+
+public void setMemo(String memo) {
+	this.memo = memo;
+}
+
+
+
+public int getMoneyid() {
 	return moneyid;
 }
 
@@ -39,13 +55,14 @@ public void setMoneyid(int moneyid) {
 
 	
 
-public MoneyBean(String usedetails, int amount, String usetype, Date joinDate, int moneyid) {
+public MoneyBean(String usedetails, int amount, String usetype, Date joinDate, int moneyid, String memo ) {
 	super();
 	this.usedetails = usedetails;
 	this.amount = amount;
 	this.usetype = usetype;
 	this.joinDate = joinDate;
 	this.moneyid = moneyid;
+	this.memo = memo;
 }
 
 

@@ -39,6 +39,7 @@
 			<td width="7%">사용내역</td>
 			<td width="7%">금액</td>
 			<td width="5%">사용구분</td>
+			<td width="11%">기타메모</td>
 			<td width="11%">작성일</td>
 			
 		</tr>
@@ -57,6 +58,7 @@
 			<td width="7%">${i.usedetails}</td>
 			<td width="7%">${i.amount}</td>
 			<td width="5%">${i.usetype }</td>
+				<td width="5%">${i.memo }</td>
 			<td width="5%">${i.joinDate }</td>
 			
 		<tr height="1" bgcolor="#99ccff">
