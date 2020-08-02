@@ -4,7 +4,9 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="design.css">
+ 
 <html>
 <head>
 
@@ -26,7 +28,7 @@
 		 
 		<form action="MoneyInsert.me" method="post">
 			<h1 style="text-align: center;">돈관리</h1>
-			<table align="center">
+			<table align="center" id="jb-content">
 				<tr>
 					<td width="200"><p align="right">사용내역</p></td>
 					<td width="400"><input type="text" name="usedetails"></td>
@@ -54,7 +56,7 @@
 			</table>	
 		</form>
 		
-		<form action="MoneyList.me" method="post" align="center">
+		<form action="MoneyList.me" method="post" align="center" id="jb-content">
 			<input align="center" type="submit" value="데이터조회">
 		</form>
 </body>

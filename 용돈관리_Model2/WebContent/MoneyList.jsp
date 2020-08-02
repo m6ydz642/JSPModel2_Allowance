@@ -63,7 +63,7 @@
 			<td width="5%">${i.joinDate }</td>
 			
 		<tr height="1" bgcolor="#99ccff">
-			<td colspan="5"></td>
+			<td colspan="6"></td>
 		</tr>
 		
 	</c:forEach>

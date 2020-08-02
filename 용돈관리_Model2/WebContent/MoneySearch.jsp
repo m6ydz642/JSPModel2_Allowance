@@ -32,8 +32,16 @@
 		<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
 	</form>
 	
-	<c:out value="${moneysearch} 에 대한 "/>	<tr> 검색결과 총 합계 금액</tr>
-	<font color="orange"> <c:out value="${sum}"/></font>원
+	<if test="${moneysearch ne '' }">
+		<c:out value="${moneysearch} 에 대한 "/>	<tr> 검색결과 총 합계 금액</tr>
+		<font color="orange"> <c:out value="${sum}"/></font>원
+	</if>
+	
+<%-- 	<if test="${moneysearch != null }">
+		<c:out value="전체검색에 대한 "/>	<tr> 검색결과 총 합계 금액</tr>
+		<font color="orange"> <c:out value="${sum}"/></font>원
+	</if> --%>
+	
 	
 	
 	<table align="center" width="100%">
@@ -61,25 +69,42 @@
 			<td width="7%">${i.usedetails}</td>
 			<td width="7%">${i.amount}</td>
 			<td width="5%">${i.usetype }</td>
-				<td width="5%">${i.memo }</td>
+			<td width="5%">${i.memo }</td>
 			<td width="5%">${i.joinDate }</td>
 			
 		<tr height="1" bgcolor="#99ccff">
-			<td colspan="5"></td>
+			<td colspan="6"></td>
 		</tr>
 		
 	</c:forEach>
 
 </c:if>
 
-		<c:if test="${count == 0}">
+
+<!--if문이 뭔가 잘못됐나 for문에 넣어도 제대로 안되서 다시 가져옴 ㅡ.ㅡ     -->
+		<c:if test="${count eq 0}">
+ 	<form action="MoneySearch.me">
+			<input name="moneysearch"><input value="검색하기" type="submit">  <br> <br> 
+	</form>
 			<tr>
-				<td colspan="5">
-					<b><span style="font-size:9pt">등록된 자료가 없습니다.</span></b>
-				</td>
+				<table align="center" width="100%">
+					<tr align="center" bgcolor="#99ccff">
+						<td width="7%">순서</td>
+						<td width="7%">사용내역</td>
+						<td width="7%">금액</td>
+						<td width="5%">사용구분</td>
+						<td width="11%">기타메모</td>
+						<td width="11%">작성일</td>
+
+					</tr>
+
+			</table>
+				<tr align="center"> 
+				<td width="7%">자료가 엄서용</td>
+							
 			</tr>
 		</c:if>
-		
+
 	</table>
 	
 	
